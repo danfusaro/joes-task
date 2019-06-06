@@ -1,0 +1,40 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+li {
+	list-style: none;
+}
+
+html {
+    font-size: 62.5%;
+
+    --color-primary: #1F3A93;
+	--color-primary-light: #3358d4;
+	--color-primary-dark: #101e4d;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+.heading-primary {
+	font-size: 3rem;
+}
+
+.context-text {
+	font-size: 1.5rem;
+	color: var(--color-primary);
+}
+
+.spacing-bottom-small: { margin-bottom: 1rem; }
+.spacing-bottom-medium: { margin-bottom: 2rem; }
+.spacing-bottom-large: { margin-bottom: 3rem; }
+
+.spacing-top-small: { margin-top: 1rem; }
+.spacing-top-medium: { margin-top: 2rem; }
+.spacing-top-large: { margin-top: 3rem; }
