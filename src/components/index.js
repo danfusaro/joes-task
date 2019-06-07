@@ -1,3 +1,3 @@
 export * from './form';
-export * from './main';
-export * from './registration';
+export * from './pokedex';
+export * from './pokemonGenerator';
