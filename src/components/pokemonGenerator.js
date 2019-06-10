@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom'
-import { getPokemonData } from './../services';
+import { getPokemonData, renderPokemon } from './../services';
 
 export class PokemonGenerator extends PureComponent {
 
@@ -32,41 +32,27 @@ export class PokemonGenerator extends PureComponent {
 		}
 	}
 
-	renderPokemon = (pokemon) => {
-		let result = [];
-		if(!pokemon) { return [] }
-		if(pokemon.error) { 
-			result.push(
-				<div key={pokemon.id}>
-					<p>Not Found</p>
-					<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/201.png" alt="not found"></img>
-				</div>
-			);
-		} else {
-			result.push(
-				<div key={pokemon.id}>
-					Id: {pokemon.id} <br />
-					Name: {pokemon.name} <br />
-					Weight: {pokemon.weight} <br />
-					<img src={pokemon.sprites.front_default} width="100px" height="100px" alt=""></img>
-				</div>
-			);			
-		}
-		return result;
-	}
-
 	render() {
-		const renderPokemon = this.renderPokemon(this.state.pokemon);
+		const pokemonList = renderPokemon(this.state.pokemon);
 		return (
 			<div>
-      		 	<Link className="btn" to="/pokedex">Pokedex</Link> <br />
-      		 	<Link className="btn" to="/">Home</Link> <br />
-      		 	<Link className="btn" to="/pokemonGenerator">Pokemon Generator</Link>
-				{ 
-					renderPokemon
-				}
-				<button onClick={this.generateNewPokemon}>Generate Pokemon</button>
-				{ this.state.loading ? <p>Loading...</p> : '' }
+				<div className="header heading-primary">
+	      		 	<Link className="nav" to="/pokedex">Pokedex</Link> <br />
+	      		 	<Link className="nav" to="/">Home</Link> <br />
+	      		 	<Link className="nav active" to="/pokemonGenerator">Pokemon Generator</Link>
+      		 	</div>	
+				<div className="container">
+					<h1 className="heading-primary spacing-bottom-large">Pokemon Generator</h1>
+
+					<div className="content content-text">
+	
+						{ 
+							pokemonList
+						}
+						
+						{ this.state.loading ? <p className="spacing-top-large">Loading...</p> : <button className="btn spacing-top-large" onClick={this.generateNewPokemon}>Generate Pokemon</button> }
+					</div>
+				</div>
 			</div>
 		);
 	}

@@ -20,9 +20,29 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    <style>
+      .background-image {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          z-index: -1;
+          opacity: .50;
+          overflow: hidden;
+      }
+      .background-image-content {
+        height: 100%;
+          width: 100%;
+          object-fit: cover;
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+      <div class="background-image">
+        <img class="background-image-content" src="/assets/pokemon-background.jpg" alt=""></img>
+      </div>
     <div id="root"></div>
     <!--
       This HTML file is a template.
