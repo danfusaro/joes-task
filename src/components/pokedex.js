@@ -1,8 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom'
 import { getPokemonData, renderPokemon } from './../services';
-import { times } from 'lodash';
-import _ from "lodash";
 
 export class Pokedex extends PureComponent {
 
@@ -50,8 +48,6 @@ export class Pokedex extends PureComponent {
 		let pokemonList = this.state.pokemonArray.map( (pokemon) => {
 			return renderPokemon(pokemon)[0];
 		})
-		let list1 = _.times(5, (i) => pokemonList[i]);
-		let list2 = _.times(5, (i) => pokemonList[i + 5]);
 		return (
 			<div>
 				<div className="header heading-primary">
@@ -62,12 +58,9 @@ export class Pokedex extends PureComponent {
 				<section className="container">
 					<div className="content content-text">
 						<h1 className="heading-primary spacing-bottom-large">Pokedex</h1>
-						<div className="pokedex-list-1">
-							{ list1 }
+						<div className="pokedex-list">
+							{ pokemonList }
 						</div>
-						<div className="pokedex-list-2">
-							{ list2 }
-						</div>		
 						<div className="pokedex-buttons spacing-top-large">		
 							{ this.state.loading ? <p>Loading</p> :
 								<div>
