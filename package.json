@@ -2,11 +2,12 @@
   "name": "joes-task",
   "version": "0.1.0",
   "private": true,
-  "jest": {
-    "verbose": true
-  },
+  "setupFiles": [
+    "<rootDir>/src/setupTests.js"
+  ],
   "dependencies": {
     "axios": "^0.19.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "chai": "^4.2.0",
     "lodash": "^4.17.11",
     "react": "^16.8.6",
@@ -15,12 +16,13 @@
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
+    "react-test-renderer": "^16.8.6",
     "redux": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "react-scripts test --env=node",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -44,7 +46,7 @@
     "babel-jest": "^24.8.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
-    "jest": "^24.8.0",
+    "jest": "^24.7.1",
     "jest-environment-enzyme": "^7.0.2",
     "jest-enzyme": "^7.0.2"
   }
